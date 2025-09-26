@@ -8,6 +8,7 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
+      text-align: center;
     }
     #bloqueio {
       position: fixed;
@@ -26,20 +27,28 @@
       display: none; /* fica escondido até liberar */
       padding: 20px;
     }
+    iframe {
+      max-width: 100%;
+    }
   </style>
 </head>
 <body>
 
-  <!-- Conteúdo da página (oculto até o timer acabar) -->
+  <!-- Conteúdo que só libera depois -->
   <div id="conteudo">
     <h1>Conteúdo desbloqueado 🎉</h1>
-    <p>Esse é o conteúdo da página que só aparece depois de 3 minutos.</p>
+    <p>Aqui você coloca o quiz da Cakto ou qualquer outro conteúdo.</p>
   </div>
 
-  <!-- Bloqueio temporário -->
+  <!-- Bloqueio inicial com a VSL -->
   <div id="bloqueio">
-    <h2>Assista o vídeo acima</h2>
-    <p>O conteúdo será liberado em breve...</p>
+    <iframe width="560" height="315" 
+      src="https://www.youtube.com/embed/59-viM7WWBI?si=8cobIPmevyDwM8E3&autoplay=1" 
+      title="YouTube video player" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+    </iframe>
+    <p>O conteúdo será liberado em 3 minutos...</p>
   </div>
 
   <script>
