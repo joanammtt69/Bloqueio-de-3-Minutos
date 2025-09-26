@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bloqueio de 3 Minutos</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+    #bloqueio {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      flex-direction: column;
+    }
+    #conteudo {
+      display: none; /* fica escondido até liberar */
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Conteúdo da página (oculto até o timer acabar) -->
+  <div id="conteudo">
+    <h1>Conteúdo desbloqueado 🎉</h1>
+    <p>Esse é o conteúdo da página que só aparece depois de 3 minutos.</p>
+  </div>
+
+  <!-- Bloqueio temporário -->
+  <div id="bloqueio">
+    <h2>Assista o vídeo acima</h2>
+    <p>O conteúdo será liberado em breve...</p>
+  </div>
+
+  <script>
+    // Tempo em milissegundos (3 minutos = 180000)
+    const tempoBloqueio = 180000;
+
+    setTimeout(() => {
+      document.getElementById("bloqueio").style.display = "none";
+      document.getElementById("conteudo").style.display = "block";
+    }, tempoBloqueio);
+  </script>
+
+</body>
+</html>
