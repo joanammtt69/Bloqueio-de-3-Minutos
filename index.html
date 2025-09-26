@@ -1,65 +1,47 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Bloqueio de 3 Minutos</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      text-align: center;
-    }
-    #bloqueio {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 9999;
-      flex-direction: column;
-    }
-    #conteudo {
-      display: none; /* fica escondido até liberar */
-      padding: 20px;
-    }
-    iframe {
-      max-width: 100%;
-    }
-  </style>
-</head>
-<body>
+<!-- Container principal -->
+<div style="max-width: 600px; margin: 0 auto; text-align: center; font-family: Arial, sans-serif;">
 
-  <!-- Conteúdo que só libera depois -->
-  <div id="conteudo">
-    <h1>Conteúdo desbloqueado 🎉</h1>
-    <p>Aqui você coloca o quiz da Cakto ou qualquer outro conteúdo.</p>
+  <!-- Logo -->
+  <div style="margin-bottom: 10px;">
+    <img src="https://protocolocriancanovamente.com.br/wp-content/uploads/2025/09/MENTE-TURBINADA.png" alt="Mente Ativa" style="max-width:120px; margin:auto; display:block;">
   </div>
 
-  <!-- Bloqueio inicial com a VSL -->
-  <div id="bloqueio">
-    <iframe width="560" height="315" 
-      src="https://www.youtube.com/embed/59-viM7WWBI?si=8cobIPmevyDwM8E3&autoplay=1" 
-      title="YouTube video player" frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
-    </iframe>
-    <p>O conteúdo será liberado em 3 minutos...</p>
+  <!-- Linha separadora -->
+  <div style="height: 3px; width: 100%; background: #FFD54F; margin: 10px 0;"></div>
+
+  <!-- Headline -->
+  <h2 style="color:#111; font-size:24px; font-weight:700; margin-bottom:15px;">
+    Seus resultados já estão prontos!
+  </h2>
+
+  <!-- Subheadline -->
+  <p style="font-size:18px; color:#333; line-height:1.5; margin-bottom:20px;">
+    Assista ao vídeo do <b style="color:#0072CE;">Dr Pedro</b> <b>até o final</b>. <br>
+    Para receber seu <b>Diagnóstico</b> <br>
+    Clique no vídeo abaixo!
+  </p>
+
+  <!-- Vídeo (VSL) -->
+  <div style="margin-bottom: 25px;">
+    <iframe width="100%" height="315" src="https://www.youtube.com/embed/tgbNymZ7vqY" 
+      title="VSL" frameborder="0" allowfullscreen></iframe>
   </div>
 
-  <script>
-    // Tempo em milissegundos (3 minutos = 180000)
-    const tempoBloqueio = 180000;
+  <!-- Conteúdo oculto -->
+  <div id="conteudo-oculto" style="display:none; margin-top:20px;">
+    <!-- Aqui você vai colar os containers do Elementor -->
+    <h3 style="color:#4CAF50; font-size:22px; font-weight:600;">
+      🎉 Parabéns! Seu diagnóstico está liberado.
+    </h3>
+    <p style="font-size:18px; color:#444;">
+      Aqui entra o conteúdo da sua página de vendas (botões, bônus, provas sociais etc).
+    </p>
+  </div>
+</div>
 
-    setTimeout(() => {
-      document.getElementById("bloqueio").style.display = "none";
-      document.getElementById("conteudo").style.display = "block";
-    }, tempoBloqueio);
-  </script>
-
-</body>
-</html>
+<!-- Script para liberar conteúdo após 3 minutos -->
+<script>
+  setTimeout(function(){
+    document.getElementById("conteudo-oculto").style.display = "block";
+  }, 180000); // 180000 ms = 3 minutos
+</script>
